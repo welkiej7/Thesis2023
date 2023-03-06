@@ -1,0 +1,5 @@
+political stance is a list with n elements. How many repetitions for every user.
+ That username will be scored accordingly. 
+
+
+
