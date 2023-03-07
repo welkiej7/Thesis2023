@@ -1,5 +1,4 @@
-political stance is a list with n elements. How many repetitions for every user.
- That username will be scored accordingly. 
-
-
-
+##create_groups will create an object for the political stance
+function. We want a complete list of followers according to the 
+folder. If they are in folder 1, it should give us a list that contains
+followers of type_1. 
