@@ -2,7 +2,7 @@
 
 
 
-paginate_trends <- function(country = "Turkey", path = "~/networked/")
+paginate_trends <- function(country = "Turkey", path = "~/networked/"){
 library(rtweet)
 library(tidyverse)
 
@@ -42,4 +42,5 @@ for (trend.check in 1:28) {
     Sys.sleep(1)
     setTxtProgressBar(progress.bar, value = time)
   }
+}
 }
