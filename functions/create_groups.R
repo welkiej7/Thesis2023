@@ -28,10 +28,3 @@ main.followers <- paths
 
 
 
-path_1 <- "~/Desktop/test/followers/group_b"
-path_2 <- "~/Desktop/test/followers/group_a"
-paths <- list(path_1,path_2)
-
-create_groups(paths = paths)
-
-length(paths)
