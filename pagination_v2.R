@@ -1,3 +1,8 @@
+
+
+
+
+paginate_trends <- function(country = "Turkey", path = "~/networked/")
 library(rtweet)
 library(tidyverse)
 
@@ -13,29 +18,23 @@ create_token(app = app.name, consumer_key = api.key, consumer_secret = api.secre
 
 
 for (trend.check in 1:28) {
-  get_trends("Turkey") -> trends.temp
-  trends.temp[1:5,] -> trends.temp # nolint: commas_linter.
+  get_trends(country) -> trends.temp
+  trends.temp[1:20,] -> trends.temp # nolint: commas_linter.
   for (get.tweets in 1:nrow(trends.temp)) {
     # Get Tweets
-    search_tweets(q = trends.temp$trend[get.tweets], n = 10000,
+    search_tweets(trends.temp$trend[get.tweets], n = 10000,
                   retryonratelimit = TRUE,
                   lang = "tr",
-                  type = "recent") -> tweets.temp
-
+                  type = "mixed") -> tweets.temp
+    network_data(tweets.temp) -> network
     #Select Necessary Columns
-    tweets.temp%>%select(c("user_id","reply_to_user_id",
-                           "mentions_user_id","quoted_user_id",
-                           "retweet_user_id","created_at","text"))-> tweets.temp
 
-    #Unnest the Mentions Columns
-
-    tweets.temp%>%unnest(mentions_user_id) -> tweets.temp
 
     #Save the Tweets for Future Research
     message("Writing the Results to the Disk")
 
-    write.csv(tweets.temp,
-              paste("~/collected_data/updated/",trends.temp$trend[get.tweets],"core", sep = ""))
+    write.csv(network,
+              paste(path,trends.temp$trend[get.tweets], sep = ""))
 
   }
   progress.bar <- txtProgressBar(min = 0, max = 21600, style = 3, char = "%")
