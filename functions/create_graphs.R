@@ -29,7 +29,7 @@ create_graphs <- function(network_file, link_type = c("all","retweet","reply","q
       network_file.mentions.graph <- graph_from_data_frame(network_file.mentions, directed = FALSE)
 
      results <- list(network_file.retweets.graph, network_file.replies.graph, network_file.quoted.graph,
-     network_file.mentions)
+     network_file.mentions.graph)
      names(results) <- c("retweets","replies","quoted","mentions")
 
      return(results) 
