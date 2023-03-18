@@ -11,10 +11,11 @@ political_stance <- function(network,groups){
    political_stance_matrix[,1] <- vertex.names
 
    for(user in 1:length(vertex.names)){
+    message(paste("User no", user, "completed."))
     for(group in 1:length(groups)){
-      political_stance_matrix[user,group + 1]  <- sum(vertex.names[user] %in% groups[[group]])
+      political_stance_matrix[user,group + 1]  <- sum(vertex.names[user] == groups[[group]])
       colnames(political_stance_matrix)[group + 1] <- paste("group",group,sep = "")
-
+      
     }
    }
    

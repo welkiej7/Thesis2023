@@ -1,3 +1,1 @@
-add_political_attributes <- function(network, ){
-    
-}
+calculate_homophily <- function()
