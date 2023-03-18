@@ -15,7 +15,12 @@ political_stance <- function(network,groups){
     for(group in 1:length(groups)){
       political_stance_matrix[user,group + 1]  <- sum(vertex.names[user] == groups[[group]])
       colnames(political_stance_matrix)[group + 1] <- paste("group",group,sep = "")
+<<<<<<< HEAD
       
+=======
+        message(paste("User",user,"Completed", sep = " "))
+
+>>>>>>> b810679de39aa96e2bbb69cc8df21ca8b32177f3
     }
    }
    
