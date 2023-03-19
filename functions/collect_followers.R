@@ -43,7 +43,7 @@ collect_followers_all_v2 <- function(user, saveAs, savedFrame = NULL, cursor, to
     } else {
       ## Read Already Existing File and Calculate the Necessary Time
      main.frame <- readr::read_csv(savedFrame) 
-     main.frame.rows <-  nrow(collected_frame)
+     main.frame.rows <-  nrow(savedFrame)
     followers  <- lookup_users(users = user)$followers_count
     iteration <- ceiling((followers - main.frame.rows)/75000)
     post_message(text = paste("Leftover Iteration of",user,"running.", sep = " "), user = to)
