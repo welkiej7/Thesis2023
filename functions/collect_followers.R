@@ -11,6 +11,7 @@ collect_followers_all_v2 <- function(user, saveAs, savedFrame = NULL, cursor, to
        n = 75000)
         #Inform User
         post_message(text = paste("Starting to the Follower Collection Process of", user, sep = " "), user = to)
+        write.csv(main.frame,saveAs, row.names = FALSE)
         #Rate Reset 
         pbar <- txtProgressBar(min = 0, max = 900, char = "=", style = 3)
         for(seconds in 1:900){
