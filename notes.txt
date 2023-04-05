@@ -1,6 +1,2 @@
-political_stance(graph, groups = groups) -> temp.ps.score
-         temp.ps.score$Score <- temp.ps.score[,2] - temp.ps.score[,3]
-         temp.ps.score%>%mutate(Score = case_when(Score < 0 ~ "Opposition",
-                                                   Score > 0 ~ "Incumbent",
-                                                   Score == 0 ~ "Neutral")) -> temp.ps.score
-         V(graph)$Score <- as.factor(temp.ps.score$Score)
+##We want a function that will calculate the homophily according to the nodes connection
+Nonetheless, groupings are going to be based on the 
