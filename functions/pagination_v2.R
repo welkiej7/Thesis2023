@@ -26,14 +26,14 @@ for (trend.check in 1:28) {
                   retryonratelimit = TRUE,
                   lang = "tr",
                   type = "mixed") -> tweets.temp
-   
+    network_data(tweets.temp) -> network
     #Select Necessary Columns
 
 
     #Save the Tweets for Future Research
     message("Writing the Results to the Disk")
 
-    write.csv(tweets.temp,
+    write.csv(network,
               paste(path,trends.temp$trend[get.tweets], sep = ""))
 
   }
